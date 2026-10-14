@@ -1,16 +1,16 @@
-from flask import Flask, jsonify, request, render_template
+
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Web interface
-@app.route("/")
-def home():
-    return render_template("index.html")
-
 # Home API endpoint
+@app.route("/")
 @app.route("/api")
 def api_home():
-    return "Welcome to my first API!"
+    return jsonify({
+        "message": "Welcome to my first API!",
+        "status": "success"
+    })
 
 # Student API endpoint
 @app.route("/student")
@@ -32,4 +32,4 @@ def hello():
     })
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
