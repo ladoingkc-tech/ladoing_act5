@@ -23,7 +23,7 @@ def get_student():
 # Greeting API endpoint
 @app.route("/hello")
 def hello():
-    name = request.args.get("name", "Student")
+    name = request.args.get("name", "student")
     return jsonify({
         "message": f"Hello, {name}!"
     })
