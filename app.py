@@ -4,12 +4,12 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 # Home API endpoint
+
 @app.route("/")
 @app.route("/api")
 def api_home():
-    return jsonify({
-        "message": "Welcome to my first API!",
-        "status": "success"
+    return "Welcome to my first API!"
+
     })
 
 # Student API endpoint
@@ -26,7 +26,7 @@ def get_student():
 # Greeting API endpoint
 @app.route("/hello")
 def hello():
-    name = request.args.get("name", "Student")
+    name = request.args.get("name", "Kc")
     return jsonify({
         "message": f"Hello, {name}!"
     })
